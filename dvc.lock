@@ -1,0 +1,33 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python train.py train
+    deps:
+    - path: insurance.csv
+      hash: md5
+      md5: d5364d06246fb4bfa4cc7d1ee89ebd0d
+      size: 55628
+    - path: train.py
+      hash: md5
+      md5: 8145a6f4d0ecd2130e7aecbfeeffd66e
+      size: 3244
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: 0b0e9171102504e5318a9529e6c8e68c
+      size: 130
+    - path: model.pkl
+      hash: md5
+      md5: 66abaaf2c48a5dabfe5571e596ba777c
+      size: 8535927
+  predict:
+    cmd: python train.py predict
+    deps:
+    - path: insurance.csv
+      hash: md5
+      md5: d5364d06246fb4bfa4cc7d1ee89ebd0d
+      size: 55628
+    - path: train.py
+      hash: md5
+      md5: 8145a6f4d0ecd2130e7aecbfeeffd66e
+      size: 3244
